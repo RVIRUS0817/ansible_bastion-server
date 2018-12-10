@@ -1,0 +1,10 @@
+- name: install packages
+  yum: name={{ item }} state=installed
+  loop:
+     - git
+     - vim
+     - tree
+     - zsh
+     - htop
+     - unzip
+

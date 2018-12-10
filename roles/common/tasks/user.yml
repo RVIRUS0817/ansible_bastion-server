@@ -1,0 +1,35 @@
+- name: create sudo user
+  user:
+    name: "{{ item.name }}"
+    password: "{{ item.pass }}"
+    update_password: "{{ item.updatepass }}"
+    groups: "{{ item.groups }}"
+    createhome: yes
+    shell: "{{ item.shell }}"
+    state: "{{ item.state }}"
+    remove: "{{ item.remove }}"
+  loop:
+  - { name: 'adachin01', pass: "{{ PASS }}", updatepass: 'on_create', groups: 'adachin', shell: '/bin/bash', state: 'present', remove: 'no' }
+  - { name: 'adachin02', pass: "{{ PASS }}", updatepass: 'on_create', groups: 'adachin', shell: '/bin/bash', state: 'present', remove: 'no' }
+
+- name: create dev user
+  user:
+    name: "{{ item.name }}"
+    password: "{{ item.pass }}"
+    update_password: "{{ item.updatepass }}"
+    createhome: yes
+    shell: "{{ item.shell }}"
+    state: "{{ item.state }}"
+    remove: "{{ item.remove }}"
+  loop:
+  - { name: 'adachindayo', pass: "{{ PASS }}", updatepass: 'on_create', shell: '/bin/bash', state: 'present', remove: 'no' }
+
+- name: authorized_key dev user
+  ignore_errors: yes
+  authorized_key:
+    user: "{{ item.user }}"
+    key:  "{{ item.key }}"
+  loop:
+  - { user: 'adachin01', key: 'ssh-rsa xxxx' }
+  - { user: 'adachin02', key: 'ssh-rsa xxxx' }
+

@@ -1,0 +1,5 @@
+#%PAM-1.0
+auth        required      pam_env.so
+auth        sufficient    pam_google_authenticator.so try_first_pass
+auth        requisite     pam_succeed_if.so uid &gt;= 500 quiet
+auth        required      pam_deny.so

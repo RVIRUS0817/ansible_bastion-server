@@ -1,0 +1,19 @@
+- name: copy /etc/pam.d/sshd,google-auth
+  copy:
+    src: "{{ item.src }}"
+    dest: "/etc/pam.d/{{ item.dest }}"
+    owner: root
+    group: root
+  loop:
+    - { src: roles/ssh/files/sshd, dest: . }
+    - { src: roles/ssh/files/google-auth, dest: . }
+
+- name: copy sshd_config
+  copy:
+    src: "{{ item.src }}"
+    dest: "/etc/ssh/{{ item.dest }}"
+    owner: root
+    group: root
+  loop:
+    - { src: roles/ssh/files/sshd_config, dest: . }
+  notify: restart sshd

@@ -1,0 +1,5 @@
+- name: install google-authenticator qrencode-libs
+  yum: name={{ item }} state=installed
+  loop:
+     - google-authenticator
+     - qrencode-libs
