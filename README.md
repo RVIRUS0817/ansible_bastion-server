@@ -4,10 +4,11 @@
 
 ## Environment
 
-- AWS/CentOS  
+- Amazon Linux/CentOS  
 - localhost   
 
 ## Specification
+- u have to run localhost  
 - User management is done with ansible   
 - You can sudo belong to the adachin group   
 - Operating so that initial password is managed by ansible but changed 
