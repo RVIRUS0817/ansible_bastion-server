@@ -19,9 +19,8 @@
 ## Create temporary password 
 
 Add a temporary password at group_vars/all.
-
-$ grub-crypt --sha-512
 ```
+$ grub-crypt --sha-512
 ```
 
 ## Add user
