@@ -16,6 +16,14 @@
 - The ssh key should use github 
 - If you do not specify a key you are asked for Google Auth's login password and Linux user password (2-step verification) 
 
+## Create temporary password 
+
+Add a temporary password at group_vars/all.
+
+$ grub-crypt --sha-512
+```
+```
+
 ## Add user
 
 - user.yml
