@@ -13,7 +13,7 @@
 - You can sudo belong to the adachin group   
 - Operating so that initial password is managed by ansible but changed 
    - Ansible adds to add a password when new user is created 
-- The ssh key should use github 
+- Make ssh key  
 - If you do not specify a key you are asked for Google Auth's login password and Linux user password (2-step verification) 
 
 ## Create temporary password 
